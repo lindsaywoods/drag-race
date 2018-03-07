@@ -33,14 +33,21 @@ h1 {
   position: relative;
   margin: 10px 0;
   letter-spacing: 3px;
-  &::after {
-    content: "For Your Life";
-    font-family: Helvetica, sans-serif;
-    color: fuchsia;
-    font-size: 16px;
-    letter-spacing: 
+  // needs media queries - currently full screen only
+  // &::after {
+  //   content: "For Your Life";
+  //   font-family: Helvetica, sans-serif;
+  //   color: fuchsia;
+  //   font-size: 26px;
+  //   letter-spacing: 1px;
+  //   position: absolute;
+  //   // top: 135px;
+  //   // right: 370px;
+  //   top: 80%;
+  //   right: 28%;
+
     
-  }
+  // }
 }
 
 
@@ -99,6 +106,12 @@ text-transform: uppercase;
 letter-spacing: .2px;
 font-size: 22px;
 margin: 0;
+}
+
+@media screen and (max-width: 440px) {
+  .catchPhrase {
+    font-size: 15px;
+  }
 }
 
 .smoothscrollFromHeader {
@@ -165,7 +178,8 @@ p {
 }
 
 input[type=radio]:checked + label {
-  background-color: blue;
+  background-color: rgba(255,0,255,.3);
+
 }
 
 
@@ -191,6 +205,37 @@ input[type=radio]:checked + label {
 .seasonTile:hover {
   filter: drop-shadow(0 0 20px fuchsia);
 }
+
+@media (max-width: 710px){
+  .seasonTile {
+    margin: 10px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width:570px) {
+  .seasonTile {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 465px) {
+  .tileGroup {
+    margin: 0px 10px;
+  }
+  .seasonTile {
+    margin: 5px;
+  }
+}
+
+@media (max-width: 425px) {
+  .seasonTile {
+    margin: 8px 2px;
+    font-size: 16px;
+  }
+}
+
+
 
 
 .pickSeason {
@@ -225,6 +270,16 @@ input[type=radio]:checked + label {
 }
 
 
+@media (max-width:400px) {
+  .seasonDownButton {
+    margin: 10px;
+    padding: 2% 1.5%;
+    font-size: 24px;
+  }
+  
+}
+
+
 
 // the song card begins here
 
@@ -247,6 +302,10 @@ input[type=radio]:checked + label {
   border-radius: 20px;
   margin-top: 55px;
   font-family: 'Racing Sans One', cursive;
+}
+
+.slayButton:hover {
+  background: lighten(fuchsia,30);
 }
 
 .songlist {
@@ -291,24 +350,15 @@ input[type=radio]:checked + label {
   text-align:center;
   background:#212121;
   position: relative;
-
-  // width: 50%;
-}
-
-.songCardSection {
-  // height: 100vh;
 }
 
 .songCardWrapper {
   width: 95%;
   margin: 0 auto;
-  margin-top: 20px;
-  // height: 500px;
+  margin-top: 60px;
   height: 80vh;
   clear:both;
 }
-
-
 
 .songArtist {
     font-weight: bold;
@@ -387,14 +437,20 @@ input[type=radio]:checked + label {
 .popUpLeft img {
   float: left;
   width: 100%;
-  max-width: 200px;
+  // max-width: 200px;
   margin: 0 auto;
+  float: left;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  bottom: 70px;
 }
 
 iframe {
   float: left;
   width: 100%;
   margin-bottom: 30px;
+  margin-top: 50px;
 }
 
 #popUp {
@@ -406,35 +462,84 @@ iframe {
   float: left;
   position: relative;
   
+  
 }
 
 #popUp.slideIn {
   padding: 50px 25px;
-  position: absolute;
-  top: 1100px;
-  transform: translateX(-50%);
-  left: 50%;
+  // position: absolute;
+  // top: 1250px;
+  // transform: translateX(-50%);
+  // left: 50%;
   max-width: 1400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 #popUp.slideOut {
   padding: 50px 25px;
-  position: absolute;
-  top: 1000px;
+  // position: absolute;
+  // top: 1250px;
+  -webkit-transform: translate(-100%);
   transform: translateX(-100%);
+  position: fixed;
+  top: 50%;
+  // left: 50%;
+
+
 }
 
 .closePopUp {
   position: absolute;
-  right: 0px;
-  top: -10px;
+  right: 50px;
+  top: 50px;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background-color: #e600e6;
   border: none;
   opacity: .9;
 }
+
+h3 {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .popUpLeft {
+    width: 100%;
+    min-height: 0px;
+  }
+
+  .popUpLeft img {
+    display: none;
+  }
+
+  .spotifyPopUpWrapper p {
+    width: 90%;
+    max-height: 550px;
+  }
+
+  #popUp.slideIn {
+    width: 80%;
+    min-height: 1000px
+  }
+
+  #popUp.slideOut {
+    width: 80%;
+    min-height: 1000px;
+  }
+}
+
+
+
+
 
 .flicker-1 {
 
